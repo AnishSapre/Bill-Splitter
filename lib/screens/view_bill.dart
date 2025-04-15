@@ -236,7 +236,6 @@ class _ViewBillState extends State<ViewBill> {
         _error = 'Error processing bill image: $e';
         _isLoading = false;
       });
-      print('Error extracting text: $e');
     }
   }
 
@@ -536,7 +535,7 @@ class _ViewBillState extends State<ViewBill> {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
-            color: Colors.blue.withOpacity(0.2),
+            color: Colors.blue[200],
             borderRadius: BorderRadius.circular(20),
           ),
           child: Text(
@@ -560,7 +559,7 @@ class _ViewBillState extends State<ViewBill> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.info_outline, color: Colors.white54, size: 36),
+          const Icon(Icons.info_outline, color: Colors.white54, size: 36),
           const SizedBox(height: 12),
           Text(
             message,
@@ -593,7 +592,7 @@ class _ViewBillState extends State<ViewBill> {
             child: DataTable(
               dataRowMinHeight: 48.0,
               dataRowMaxHeight: 64.0,
-              headingRowColor: MaterialStateProperty.resolveWith<Color?>(
+              headingRowColor: WidgetStateProperty.resolveWith<Color?>(
                   (_) => Colors.blueGrey[800]),
               headingTextStyle: const TextStyle(
                   color: Colors.white, fontWeight: FontWeight.bold),
