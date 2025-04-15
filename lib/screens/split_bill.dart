@@ -362,9 +362,9 @@ class _SplitBillPageState extends State<SplitBillPage> with SingleTickerProvider
             duration: const Duration(milliseconds: 300),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: _cardColor.withOpacity(0.7),
+              color: _cardColor,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: _accentColor.withOpacity(0.3)),
+              border: Border.all(color: _accentColor.withValues(alpha: 0.7)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -386,9 +386,9 @@ class _SplitBillPageState extends State<SplitBillPage> with SingleTickerProvider
                   data: SliderThemeData(
                     trackHeight: 4,
                     activeTrackColor: _accentColor,
-                    inactiveTrackColor: _accentColor.withOpacity(0.2),
+                    inactiveTrackColor: _accentColor.withValues(alpha: 0.2),
                     thumbColor: Colors.white,
-                    overlayColor: _accentColor.withOpacity(0.2),
+                    overlayColor: _accentColor.withValues(alpha: 0.2),
                     valueIndicatorColor: _accentColor,
                     valueIndicatorTextStyle: const TextStyle(color: Colors.white),
                   ),
@@ -427,13 +427,13 @@ class _SplitBillPageState extends State<SplitBillPage> with SingleTickerProvider
                           : _accentColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
-                          side: BorderSide(color: _accentColor.withOpacity(0.5)),
+                          side: BorderSide(color: _accentColor.withValues(alpha: 0.5)),
                         ),
                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                         minimumSize: Size.zero,
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
-                      child: Text('${percentage}%'),
+                      child: Text('$percentage%'),
                     )
                   ).toList(),
                 ),
@@ -448,7 +448,7 @@ class _SplitBillPageState extends State<SplitBillPage> with SingleTickerProvider
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
             decoration: BoxDecoration(
-              color: _accentColor.withOpacity(0.1),
+              color: _accentColor.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -545,7 +545,7 @@ class _SplitBillPageState extends State<SplitBillPage> with SingleTickerProvider
       return DataRow(
         color: WidgetStateProperty.resolveWith<Color?>((states) {
           int index = widget.people.indexOf(person);
-          return index % 2 == 0 ? Colors.grey[900]?.withOpacity(0.5) : Colors.transparent;
+          return index % 2 == 0 ? Colors.grey[900]?.withValues(alpha: 0.5) : Colors.transparent;
         }),
         cells: [
           // Person's name cell with color indicator
@@ -576,7 +576,6 @@ class _SplitBillPageState extends State<SplitBillPage> with SingleTickerProvider
           // Item portion cells
           ..._regularItems.asMap().entries.map((entry) {
             final itemIndex = entry.key;
-            final item = entry.value;
             
             return DataCell(
               Container(
@@ -619,7 +618,7 @@ class _SplitBillPageState extends State<SplitBillPage> with SingleTickerProvider
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: _accentColor.withOpacity(0.1),
+                color: _accentColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(4),
               ),
               child: Text(
@@ -627,7 +626,7 @@ class _SplitBillPageState extends State<SplitBillPage> with SingleTickerProvider
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: _accentColor,
+                  color: _accentColor.withValues(alpha: 0.7),
                 ),
               ),
             )
@@ -852,7 +851,7 @@ class _SplitBillPageState extends State<SplitBillPage> with SingleTickerProvider
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.check_circle,
                                   color: Colors.green,
                                   size: 64,
